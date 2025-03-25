@@ -17,6 +17,8 @@ import torch.nn.functional as F
 import time
 import pickle
 
+from multiscale_style_injection import MultiScaleDecoder
+
 feat_maps = []
 
 def save_img_from_sample(model, samples_ddim, fname):
@@ -111,6 +113,8 @@ def main():
     parser.add_argument('--output_path', type=str, default='output')
     parser.add_argument("--without_init_adain", action='store_true')
     parser.add_argument("--without_attn_injection", action='store_true')
+    # New flag to enable multi-scale injection
+    parser.add_argument("--multiscale_injection", action='store_true', help='Enable multi-scale style injection')
     opt = parser.parse_args()
 
     feat_path_root = opt.precomputed
@@ -182,6 +186,12 @@ def main():
     sty_img_list = sorted(os.listdir(opt.sty))
     cnt_img_list = sorted(os.listdir(opt.cnt))
 
+    # If multi-scale injection is enabled, initialize our module.
+    if opt.multiscale_injection:
+        # Use the channel numbers from Stable Diffusion v1.4: low=320, mid=640, high=1280.
+        multi_scale_decoder = MultiScaleDecoder(unet_model, low_channels=320, mid_channels=640, high_channels=1280)
+        multi_scale_decoder.to(device)
+
     begin = time.time()
     for sty_name in sty_img_list:
         sty_name_ = os.path.join(opt.sty, sty_name)
@@ -237,24 +247,35 @@ def main():
                             adain_z_enc = cnt_z_enc
                         else:
                             adain_z_enc = adain(cnt_z_enc, sty_z_enc)
-                        feat_maps = feat_merge(opt, cnt_feat, sty_feat, start_step=start_step)
-                        if opt.without_attn_injection:
-                            feat_maps = None
 
-                        # inference
-                        samples_ddim, intermediates = sampler.sample(S=ddim_steps,
-                                                        batch_size=1,
-                                                        shape=shape,
-                                                        verbose=False,
-                                                        unconditional_conditioning=uc,
-                                                        eta=opt.ddim_eta,
-                                                        x_T=adain_z_enc,
-                                                        injected_features=feat_maps,
-                                                        start_step=start_step,
-                                                        )
+                        if not opt.multiscale_injection:
+                            feat_maps = feat_merge(opt, cnt_feat, sty_feat, start_step=start_step)
+                            if opt.without_attn_injection:
+                                feat_maps = None
 
-                        x_samples_ddim = model.decode_first_stage(samples_ddim)
-                        x_samples_ddim = torch.clamp((x_samples_ddim + 1.0) / 2.0, min=0.0, max=1.0)
+                            # inference
+                            samples_ddim, intermediates = sampler.sample(S=ddim_steps,
+                                                            batch_size=1,
+                                                            shape=shape,
+                                                            verbose=False,
+                                                            unconditional_conditioning=uc,
+                                                            eta=opt.ddim_eta,
+                                                            x_T=adain_z_enc,
+                                                            injected_features=feat_maps,
+                                                            start_step=start_step,
+                                                            )
+                            x_out = model.decode_first_stage(samples_ddim)
+
+                        else:
+                            # For multi-scale injection, construct a style_features dictionary.
+                            # Here we simply replicate sty_z_enc for all scales. In practice, you may extract features at each scale.
+                            style_features = {'low': sty_z_enc, 'mid': sty_z_enc, 'high': sty_z_enc}
+                            # Pass the content latent and style features through the multi-scale decoder.
+                            generated_latent = multi_scale_decoder(adain_z_enc, style_features)
+                            x_out = model.decode_first_stage(generated_latent)
+
+                        #x_samples_ddim = model.decode_first_stage(samples_ddim)
+                        x_samples_ddim = torch.clamp((x_out + 1.0) / 2.0, min=0.0, max=1.0)
                         x_samples_ddim = x_samples_ddim.cpu().permute(0, 2, 3, 1).numpy()
                         x_image_torch = torch.from_numpy(x_samples_ddim).permute(0, 3, 1, 2)
                         x_sample = 255. * rearrange(x_image_torch[0].cpu().numpy(), 'c h w -> h w c')
