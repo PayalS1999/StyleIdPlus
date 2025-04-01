@@ -7,7 +7,7 @@ from PIL import Image
 # (Assuming your style images are in ../data/sty and content images in ../data/cnt relative to current directory)
 style_images = ["03.png", "10.png", "13.png", "21.png", "25.png", "28.png", "37.png"]
 content_images = ["00.png", "06.png", "19.png"]
-gamma_values = [0.7, 0.75, 0.8]
+gamma_values = [0.2, 0.3]
 
 # Base directories (adjust if necessary)
 base_style_dir = os.path.join("..", "data", "sty")
