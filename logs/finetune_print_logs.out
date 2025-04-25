@@ -1,0 +1,468 @@
+LatentDiffusion: Running in eps-prediction mode
+DiffusionWrapper has 859.52 M params.
+making attention of type 'vanilla' with 512 in_channels
+Working with z of shape (1, 4, 32, 32) = 4096 dimensions.
+making attention of type 'vanilla' with 512 in_channels
+Selected timesteps for ddim sampler: [  1  21  41  61  81 101 121 141 161 181 201 221 241 261 281 301 321 341
+ 361 381 401 421 441 461 481 501 521 541 561 581 601 621 641 661 681 701
+ 721 741 761 781 801 821 841 861 881 901 921 941 961 981]
+Selected alphas for ddim sampler: a_t: tensor([0.9983, 0.9804, 0.9609, 0.9398, 0.9171, 0.8930, 0.8674, 0.8404, 0.8121,
+        0.7827, 0.7521, 0.7207, 0.6885, 0.6557, 0.6224, 0.5888, 0.5551, 0.5215,
+        0.4882, 0.4552, 0.4229, 0.3913, 0.3605, 0.3308, 0.3023, 0.2750, 0.2490,
+        0.2245, 0.2014, 0.1799, 0.1598, 0.1413, 0.1243, 0.1087, 0.0946, 0.0819,
+        0.0705, 0.0604, 0.0514, 0.0435, 0.0365, 0.0305, 0.0254, 0.0210, 0.0172,
+        0.0140, 0.0113, 0.0091, 0.0073, 0.0058]); a_(t-1): [0.99914998 0.99829602 0.98038077 0.96087277 0.93978298 0.91713792
+ 0.89298052 0.86737001 0.84038192 0.81210774 0.78265446 0.75214338
+ 0.72070938 0.68849909 0.65566933 0.62238538 0.58881873 0.55514455
+ 0.52153981 0.4881804  0.45523876 0.42288151 0.39126703 0.36054322
+ 0.33084565 0.30229566 0.27499905 0.24904492 0.22450483 0.20143245
+ 0.1798636  0.15981644 0.14129217 0.12427604 0.10873855 0.09463691
+ 0.08191671 0.0705137  0.06035557 0.05136392 0.043456   0.03654652
+ 0.03054927 0.02537862 0.02095082 0.01718517 0.0140049  0.01133791
+ 0.00911731 0.00728173]
+For the chosen value of eta, which is 0.0, this results in the following sigma_t schedule for ddim sampler tensor([0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+        0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+        0., 0.], dtype=torch.float64)
+LatentDiffusion: Running in eps-prediction mode
+DiffusionWrapper has 859.52 M params.
+making attention of type 'vanilla' with 512 in_channels
+Working with z of shape (1, 4, 32, 32) = 4096 dimensions.
+making attention of type 'vanilla' with 512 in_channels
+Selected timesteps for ddim sampler: [  1  21  41  61  81 101 121 141 161 181 201 221 241 261 281 301 321 341
+ 361 381 401 421 441 461 481 501 521 541 561 581 601 621 641 661 681 701
+ 721 741 761 781 801 821 841 861 881 901 921 941 961 981]
+Selected alphas for ddim sampler: a_t: tensor([0.9983, 0.9804, 0.9609, 0.9398, 0.9171, 0.8930, 0.8674, 0.8404, 0.8121,
+        0.7827, 0.7521, 0.7207, 0.6885, 0.6557, 0.6224, 0.5888, 0.5551, 0.5215,
+        0.4882, 0.4552, 0.4229, 0.3913, 0.3605, 0.3308, 0.3023, 0.2750, 0.2490,
+        0.2245, 0.2014, 0.1799, 0.1598, 0.1413, 0.1243, 0.1087, 0.0946, 0.0819,
+        0.0705, 0.0604, 0.0514, 0.0435, 0.0365, 0.0305, 0.0254, 0.0210, 0.0172,
+        0.0140, 0.0113, 0.0091, 0.0073, 0.0058]); a_(t-1): [0.99914998 0.99829602 0.98038077 0.96087277 0.93978298 0.91713792
+ 0.89298052 0.86737001 0.84038192 0.81210774 0.78265446 0.75214338
+ 0.72070938 0.68849909 0.65566933 0.62238538 0.58881873 0.55514455
+ 0.52153981 0.4881804  0.45523876 0.42288151 0.39126703 0.36054322
+ 0.33084565 0.30229566 0.27499905 0.24904492 0.22450483 0.20143245
+ 0.1798636  0.15981644 0.14129217 0.12427604 0.10873855 0.09463691
+ 0.08191671 0.0705137  0.06035557 0.05136392 0.043456   0.03654652
+ 0.03054927 0.02537862 0.02095082 0.01718517 0.0140049  0.01133791
+ 0.00911731 0.00728173]
+For the chosen value of eta, which is 0.0, this results in the following sigma_t schedule for ddim sampler tensor([0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+        0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+        0., 0.], dtype=torch.float64)
+LatentDiffusion: Running in eps-prediction mode
+DiffusionWrapper has 859.52 M params.
+making attention of type 'vanilla' with 512 in_channels
+Working with z of shape (1, 4, 32, 32) = 4096 dimensions.
+making attention of type 'vanilla' with 512 in_channels
+Selected timesteps for ddim sampler: [  1  21  41  61  81 101 121 141 161 181 201 221 241 261 281 301 321 341
+ 361 381 401 421 441 461 481 501 521 541 561 581 601 621 641 661 681 701
+ 721 741 761 781 801 821 841 861 881 901 921 941 961 981]
+Selected alphas for ddim sampler: a_t: tensor([0.9983, 0.9804, 0.9609, 0.9398, 0.9171, 0.8930, 0.8674, 0.8404, 0.8121,
+        0.7827, 0.7521, 0.7207, 0.6885, 0.6557, 0.6224, 0.5888, 0.5551, 0.5215,
+        0.4882, 0.4552, 0.4229, 0.3913, 0.3605, 0.3308, 0.3023, 0.2750, 0.2490,
+        0.2245, 0.2014, 0.1799, 0.1598, 0.1413, 0.1243, 0.1087, 0.0946, 0.0819,
+        0.0705, 0.0604, 0.0514, 0.0435, 0.0365, 0.0305, 0.0254, 0.0210, 0.0172,
+        0.0140, 0.0113, 0.0091, 0.0073, 0.0058]); a_(t-1): [0.99914998 0.99829602 0.98038077 0.96087277 0.93978298 0.91713792
+ 0.89298052 0.86737001 0.84038192 0.81210774 0.78265446 0.75214338
+ 0.72070938 0.68849909 0.65566933 0.62238538 0.58881873 0.55514455
+ 0.52153981 0.4881804  0.45523876 0.42288151 0.39126703 0.36054322
+ 0.33084565 0.30229566 0.27499905 0.24904492 0.22450483 0.20143245
+ 0.1798636  0.15981644 0.14129217 0.12427604 0.10873855 0.09463691
+ 0.08191671 0.0705137  0.06035557 0.05136392 0.043456   0.03654652
+ 0.03054927 0.02537862 0.02095082 0.01718517 0.0140049  0.01133791
+ 0.00911731 0.00728173]
+For the chosen value of eta, which is 0.0, this results in the following sigma_t schedule for ddim sampler tensor([0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+        0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+        0., 0.], dtype=torch.float64)
+LatentDiffusion: Running in eps-prediction mode
+DiffusionWrapper has 859.52 M params.
+making attention of type 'vanilla' with 512 in_channels
+Working with z of shape (1, 4, 32, 32) = 4096 dimensions.
+making attention of type 'vanilla' with 512 in_channels
+Selected timesteps for ddim sampler: [  1  21  41  61  81 101 121 141 161 181 201 221 241 261 281 301 321 341
+ 361 381 401 421 441 461 481 501 521 541 561 581 601 621 641 661 681 701
+ 721 741 761 781 801 821 841 861 881 901 921 941 961 981]
+Selected alphas for ddim sampler: a_t: tensor([0.9983, 0.9804, 0.9609, 0.9398, 0.9171, 0.8930, 0.8674, 0.8404, 0.8121,
+        0.7827, 0.7521, 0.7207, 0.6885, 0.6557, 0.6224, 0.5888, 0.5551, 0.5215,
+        0.4882, 0.4552, 0.4229, 0.3913, 0.3605, 0.3308, 0.3023, 0.2750, 0.2490,
+        0.2245, 0.2014, 0.1799, 0.1598, 0.1413, 0.1243, 0.1087, 0.0946, 0.0819,
+        0.0705, 0.0604, 0.0514, 0.0435, 0.0365, 0.0305, 0.0254, 0.0210, 0.0172,
+        0.0140, 0.0113, 0.0091, 0.0073, 0.0058]); a_(t-1): [0.99914998 0.99829602 0.98038077 0.96087277 0.93978298 0.91713792
+ 0.89298052 0.86737001 0.84038192 0.81210774 0.78265446 0.75214338
+ 0.72070938 0.68849909 0.65566933 0.62238538 0.58881873 0.55514455
+ 0.52153981 0.4881804  0.45523876 0.42288151 0.39126703 0.36054322
+ 0.33084565 0.30229566 0.27499905 0.24904492 0.22450483 0.20143245
+ 0.1798636  0.15981644 0.14129217 0.12427604 0.10873855 0.09463691
+ 0.08191671 0.0705137  0.06035557 0.05136392 0.043456   0.03654652
+ 0.03054927 0.02537862 0.02095082 0.01718517 0.0140049  0.01133791
+ 0.00911731 0.00728173]
+For the chosen value of eta, which is 0.0, this results in the following sigma_t schedule for ddim sampler tensor([0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+        0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+        0., 0.], dtype=torch.float64)
+LatentDiffusion: Running in eps-prediction mode
+DiffusionWrapper has 859.52 M params.
+making attention of type 'vanilla' with 512 in_channels
+Working with z of shape (1, 4, 32, 32) = 4096 dimensions.
+making attention of type 'vanilla' with 512 in_channels
+Selected timesteps for ddim sampler: [  1  21  41  61  81 101 121 141 161 181 201 221 241 261 281 301 321 341
+ 361 381 401 421 441 461 481 501 521 541 561 581 601 621 641 661 681 701
+ 721 741 761 781 801 821 841 861 881 901 921 941 961 981]
+Selected alphas for ddim sampler: a_t: tensor([0.9983, 0.9804, 0.9609, 0.9398, 0.9171, 0.8930, 0.8674, 0.8404, 0.8121,
+        0.7827, 0.7521, 0.7207, 0.6885, 0.6557, 0.6224, 0.5888, 0.5551, 0.5215,
+        0.4882, 0.4552, 0.4229, 0.3913, 0.3605, 0.3308, 0.3023, 0.2750, 0.2490,
+        0.2245, 0.2014, 0.1799, 0.1598, 0.1413, 0.1243, 0.1087, 0.0946, 0.0819,
+        0.0705, 0.0604, 0.0514, 0.0435, 0.0365, 0.0305, 0.0254, 0.0210, 0.0172,
+        0.0140, 0.0113, 0.0091, 0.0073, 0.0058]); a_(t-1): [0.99914998 0.99829602 0.98038077 0.96087277 0.93978298 0.91713792
+ 0.89298052 0.86737001 0.84038192 0.81210774 0.78265446 0.75214338
+ 0.72070938 0.68849909 0.65566933 0.62238538 0.58881873 0.55514455
+ 0.52153981 0.4881804  0.45523876 0.42288151 0.39126703 0.36054322
+ 0.33084565 0.30229566 0.27499905 0.24904492 0.22450483 0.20143245
+ 0.1798636  0.15981644 0.14129217 0.12427604 0.10873855 0.09463691
+ 0.08191671 0.0705137  0.06035557 0.05136392 0.043456   0.03654652
+ 0.03054927 0.02537862 0.02095082 0.01718517 0.0140049  0.01133791
+ 0.00911731 0.00728173]
+For the chosen value of eta, which is 0.0, this results in the following sigma_t schedule for ddim sampler tensor([0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+        0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+        0., 0.], dtype=torch.float64)
+LatentDiffusion: Running in eps-prediction mode
+DiffusionWrapper has 859.52 M params.
+making attention of type 'vanilla' with 512 in_channels
+Working with z of shape (1, 4, 32, 32) = 4096 dimensions.
+making attention of type 'vanilla' with 512 in_channels
+Selected timesteps for ddim sampler: [  1  21  41  61  81 101 121 141 161 181 201 221 241 261 281 301 321 341
+ 361 381 401 421 441 461 481 501 521 541 561 581 601 621 641 661 681 701
+ 721 741 761 781 801 821 841 861 881 901 921 941 961 981]
+Selected alphas for ddim sampler: a_t: tensor([0.9983, 0.9804, 0.9609, 0.9398, 0.9171, 0.8930, 0.8674, 0.8404, 0.8121,
+        0.7827, 0.7521, 0.7207, 0.6885, 0.6557, 0.6224, 0.5888, 0.5551, 0.5215,
+        0.4882, 0.4552, 0.4229, 0.3913, 0.3605, 0.3308, 0.3023, 0.2750, 0.2490,
+        0.2245, 0.2014, 0.1799, 0.1598, 0.1413, 0.1243, 0.1087, 0.0946, 0.0819,
+        0.0705, 0.0604, 0.0514, 0.0435, 0.0365, 0.0305, 0.0254, 0.0210, 0.0172,
+        0.0140, 0.0113, 0.0091, 0.0073, 0.0058]); a_(t-1): [0.99914998 0.99829602 0.98038077 0.96087277 0.93978298 0.91713792
+ 0.89298052 0.86737001 0.84038192 0.81210774 0.78265446 0.75214338
+ 0.72070938 0.68849909 0.65566933 0.62238538 0.58881873 0.55514455
+ 0.52153981 0.4881804  0.45523876 0.42288151 0.39126703 0.36054322
+ 0.33084565 0.30229566 0.27499905 0.24904492 0.22450483 0.20143245
+ 0.1798636  0.15981644 0.14129217 0.12427604 0.10873855 0.09463691
+ 0.08191671 0.0705137  0.06035557 0.05136392 0.043456   0.03654652
+ 0.03054927 0.02537862 0.02095082 0.01718517 0.0140049  0.01133791
+ 0.00911731 0.00728173]
+For the chosen value of eta, which is 0.0, this results in the following sigma_t schedule for ddim sampler tensor([0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+        0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+        0., 0.], dtype=torch.float64)
+LatentDiffusion: Running in eps-prediction mode
+DiffusionWrapper has 859.52 M params.
+making attention of type 'vanilla' with 512 in_channels
+Working with z of shape (1, 4, 32, 32) = 4096 dimensions.
+making attention of type 'vanilla' with 512 in_channels
+Selected timesteps for ddim sampler: [  1  21  41  61  81 101 121 141 161 181 201 221 241 261 281 301 321 341
+ 361 381 401 421 441 461 481 501 521 541 561 581 601 621 641 661 681 701
+ 721 741 761 781 801 821 841 861 881 901 921 941 961 981]
+Selected alphas for ddim sampler: a_t: tensor([0.9983, 0.9804, 0.9609, 0.9398, 0.9171, 0.8930, 0.8674, 0.8404, 0.8121,
+        0.7827, 0.7521, 0.7207, 0.6885, 0.6557, 0.6224, 0.5888, 0.5551, 0.5215,
+        0.4882, 0.4552, 0.4229, 0.3913, 0.3605, 0.3308, 0.3023, 0.2750, 0.2490,
+        0.2245, 0.2014, 0.1799, 0.1598, 0.1413, 0.1243, 0.1087, 0.0946, 0.0819,
+        0.0705, 0.0604, 0.0514, 0.0435, 0.0365, 0.0305, 0.0254, 0.0210, 0.0172,
+        0.0140, 0.0113, 0.0091, 0.0073, 0.0058]); a_(t-1): [0.99914998 0.99829602 0.98038077 0.96087277 0.93978298 0.91713792
+ 0.89298052 0.86737001 0.84038192 0.81210774 0.78265446 0.75214338
+ 0.72070938 0.68849909 0.65566933 0.62238538 0.58881873 0.55514455
+ 0.52153981 0.4881804  0.45523876 0.42288151 0.39126703 0.36054322
+ 0.33084565 0.30229566 0.27499905 0.24904492 0.22450483 0.20143245
+ 0.1798636  0.15981644 0.14129217 0.12427604 0.10873855 0.09463691
+ 0.08191671 0.0705137  0.06035557 0.05136392 0.043456   0.03654652
+ 0.03054927 0.02537862 0.02095082 0.01718517 0.0140049  0.01133791
+ 0.00911731 0.00728173]
+For the chosen value of eta, which is 0.0, this results in the following sigma_t schedule for ddim sampler tensor([0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+        0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+        0., 0.], dtype=torch.float64)
+LatentDiffusion: Running in eps-prediction mode
+DiffusionWrapper has 859.52 M params.
+making attention of type 'vanilla' with 512 in_channels
+Working with z of shape (1, 4, 32, 32) = 4096 dimensions.
+making attention of type 'vanilla' with 512 in_channels
+Selected timesteps for ddim sampler: [  1  21  41  61  81 101 121 141 161 181 201 221 241 261 281 301 321 341
+ 361 381 401 421 441 461 481 501 521 541 561 581 601 621 641 661 681 701
+ 721 741 761 781 801 821 841 861 881 901 921 941 961 981]
+Selected alphas for ddim sampler: a_t: tensor([0.9983, 0.9804, 0.9609, 0.9398, 0.9171, 0.8930, 0.8674, 0.8404, 0.8121,
+        0.7827, 0.7521, 0.7207, 0.6885, 0.6557, 0.6224, 0.5888, 0.5551, 0.5215,
+        0.4882, 0.4552, 0.4229, 0.3913, 0.3605, 0.3308, 0.3023, 0.2750, 0.2490,
+        0.2245, 0.2014, 0.1799, 0.1598, 0.1413, 0.1243, 0.1087, 0.0946, 0.0819,
+        0.0705, 0.0604, 0.0514, 0.0435, 0.0365, 0.0305, 0.0254, 0.0210, 0.0172,
+        0.0140, 0.0113, 0.0091, 0.0073, 0.0058]); a_(t-1): [0.99914998 0.99829602 0.98038077 0.96087277 0.93978298 0.91713792
+ 0.89298052 0.86737001 0.84038192 0.81210774 0.78265446 0.75214338
+ 0.72070938 0.68849909 0.65566933 0.62238538 0.58881873 0.55514455
+ 0.52153981 0.4881804  0.45523876 0.42288151 0.39126703 0.36054322
+ 0.33084565 0.30229566 0.27499905 0.24904492 0.22450483 0.20143245
+ 0.1798636  0.15981644 0.14129217 0.12427604 0.10873855 0.09463691
+ 0.08191671 0.0705137  0.06035557 0.05136392 0.043456   0.03654652
+ 0.03054927 0.02537862 0.02095082 0.01718517 0.0140049  0.01133791
+ 0.00911731 0.00728173]
+For the chosen value of eta, which is 0.0, this results in the following sigma_t schedule for ddim sampler tensor([0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+        0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+        0., 0.], dtype=torch.float64)
+Epoch 1/20 | Step 50/250 (Global Step 50) | Noise Loss: 0.1303 | CLIP Loss: 0.2045
+Epoch 1/20 | Step 100/250 (Global Step 100) | Noise Loss: 0.1392 | CLIP Loss: 0.2094
+Epoch 1/20 | Step 150/250 (Global Step 150) | Noise Loss: 0.1010 | CLIP Loss: 0.1997
+Epoch 1/20 | Step 200/250 (Global Step 200) | Noise Loss: 0.1381 | CLIP Loss: 0.2128
+Epoch 1/20 | Step 250/250 (Global Step 250) | Noise Loss: 0.1325 | CLIP Loss: 0.2088
+Epoch 1/20 — Loss: 0.3115
+Epoch 2/20 | Step 50/250 (Global Step 300) | Noise Loss: 0.1337 | CLIP Loss: 0.2082
+Epoch 2/20 | Step 100/250 (Global Step 350) | Noise Loss: 0.1215 | CLIP Loss: 0.2071
+Epoch 2/20 | Step 150/250 (Global Step 400) | Noise Loss: 0.1240 | CLIP Loss: 0.2069
+Epoch 2/20 | Step 200/250 (Global Step 450) | Noise Loss: 0.1235 | CLIP Loss: 0.2049
+Epoch 2/20 | Step 250/250 (Global Step 500) | Noise Loss: 0.1206 | CLIP Loss: 0.2059
+Epoch 2/20 — Loss: 0.0921
+Epoch 3/20 | Step 50/250 (Global Step 550) | Noise Loss: 0.1307 | CLIP Loss: 0.2025
+Epoch 3/20 | Step 100/250 (Global Step 600) | Noise Loss: 0.1390 | CLIP Loss: 0.2107
+Epoch 3/20 | Step 150/250 (Global Step 650) | Noise Loss: 0.1263 | CLIP Loss: 0.2110
+Epoch 3/20 | Step 200/250 (Global Step 700) | Noise Loss: 0.1385 | CLIP Loss: 0.1995
+Epoch 3/20 | Step 250/250 (Global Step 750) | Noise Loss: 0.1079 | CLIP Loss: 0.2076
+Epoch 3/20 — Loss: 0.1746
+Epoch 4/20 | Step 50/250 (Global Step 800) | Noise Loss: 0.1399 | CLIP Loss: 0.2082
+Epoch 4/20 | Step 100/250 (Global Step 850) | Noise Loss: 0.1498 | CLIP Loss: 0.2087
+Epoch 4/20 | Step 150/250 (Global Step 900) | Noise Loss: 0.1175 | CLIP Loss: 0.2055
+Epoch 4/20 | Step 200/250 (Global Step 950) | Noise Loss: 0.1156 | CLIP Loss: 0.2010
+Epoch 4/20 | Step 250/250 (Global Step 1000) | Noise Loss: 0.1368 | CLIP Loss: 0.2107
+Epoch 4/20 — Loss: 0.1099
+Epoch 5/20 | Step 50/250 (Global Step 1050) | Noise Loss: 0.1243 | CLIP Loss: 0.2037
+Epoch 5/20 | Step 100/250 (Global Step 1100) | Noise Loss: 0.1100 | CLIP Loss: 0.2013
+Epoch 5/20 | Step 150/250 (Global Step 1150) | Noise Loss: 0.1206 | CLIP Loss: 0.2071
+Epoch 5/20 | Step 200/250 (Global Step 1200) | Noise Loss: 0.1203 | CLIP Loss: 0.2093
+Epoch 5/20 | Step 250/250 (Global Step 1250) | Noise Loss: 0.1369 | CLIP Loss: 0.2072
+Epoch 5/20 — Loss: 0.0589
+Epoch 6/20 | Step 50/250 (Global Step 1300) | Noise Loss: 0.1075 | CLIP Loss: 0.2050
+Epoch 6/20 | Step 100/250 (Global Step 1350) | Noise Loss: 0.1179 | CLIP Loss: 0.2050
+Epoch 6/20 | Step 150/250 (Global Step 1400) | Noise Loss: 0.1255 | CLIP Loss: 0.1991
+Epoch 6/20 | Step 200/250 (Global Step 1450) | Noise Loss: 0.1294 | CLIP Loss: 0.2030
+Epoch 6/20 | Step 250/250 (Global Step 1500) | Noise Loss: 0.1114 | CLIP Loss: 0.2084
+Epoch 6/20 — Loss: 0.2307
+Epoch 7/20 | Step 50/250 (Global Step 1550) | Noise Loss: 0.1138 | CLIP Loss: 0.2035
+Epoch 7/20 | Step 100/250 (Global Step 1600) | Noise Loss: 0.1245 | CLIP Loss: 0.2021
+Epoch 7/20 | Step 150/250 (Global Step 1650) | Noise Loss: 0.1245 | CLIP Loss: 0.2074
+Epoch 7/20 | Step 200/250 (Global Step 1700) | Noise Loss: 0.1019 | CLIP Loss: 0.1965
+Epoch 7/20 | Step 250/250 (Global Step 1750) | Noise Loss: 0.1186 | CLIP Loss: 0.2031
+Epoch 7/20 — Loss: 0.1880
+Epoch 8/20 | Step 50/250 (Global Step 1800) | Noise Loss: 0.1589 | CLIP Loss: 0.2174
+Epoch 8/20 | Step 100/250 (Global Step 1850) | Noise Loss: 0.1275 | CLIP Loss: 0.2071
+Epoch 8/20 | Step 150/250 (Global Step 1900) | Noise Loss: 0.1378 | CLIP Loss: 0.2044
+Epoch 8/20 | Step 200/250 (Global Step 1950) | Noise Loss: 0.1325 | CLIP Loss: 0.2052
+Epoch 8/20 | Step 250/250 (Global Step 2000) | Noise Loss: 0.1161 | CLIP Loss: 0.2059
+Epoch 8/20 — Loss: 0.1975
+Epoch 9/20 | Step 50/250 (Global Step 2050) | Noise Loss: 0.1347 | CLIP Loss: 0.2038
+Epoch 9/20 | Step 100/250 (Global Step 2100) | Noise Loss: 0.1211 | CLIP Loss: 0.2043
+Epoch 9/20 | Step 150/250 (Global Step 2150) | Noise Loss: 0.1099 | CLIP Loss: 0.2040
+Epoch 9/20 | Step 200/250 (Global Step 2200) | Noise Loss: 0.1150 | CLIP Loss: 0.2081
+Epoch 9/20 | Step 250/250 (Global Step 2250) | Noise Loss: 0.1218 | CLIP Loss: 0.2027
+Epoch 9/20 — Loss: 0.1100
+Epoch 10/20 | Step 50/250 (Global Step 2300) | Noise Loss: 0.1089 | CLIP Loss: 0.2023
+Epoch 10/20 | Step 100/250 (Global Step 2350) | Noise Loss: 0.1443 | CLIP Loss: 0.2099
+Epoch 10/20 | Step 150/250 (Global Step 2400) | Noise Loss: 0.1353 | CLIP Loss: 0.2094
+Epoch 10/20 | Step 200/250 (Global Step 2450) | Noise Loss: 0.1343 | CLIP Loss: 0.2058
+Epoch 10/20 | Step 250/250 (Global Step 2500) | Noise Loss: 0.1426 | CLIP Loss: 0.2105
+Epoch 10/20 — Loss: 0.1752
+Epoch 11/20 | Step 50/250 (Global Step 2550) | Noise Loss: 0.1384 | CLIP Loss: 0.2061
+Epoch 11/20 | Step 100/250 (Global Step 2600) | Noise Loss: 0.1465 | CLIP Loss: 0.2095
+Epoch 11/20 | Step 150/250 (Global Step 2650) | Noise Loss: 0.1423 | CLIP Loss: 0.2100
+Epoch 11/20 | Step 200/250 (Global Step 2700) | Noise Loss: 0.1233 | CLIP Loss: 0.2057
+Epoch 11/20 | Step 250/250 (Global Step 2750) | Noise Loss: 0.1419 | CLIP Loss: 0.2072
+Epoch 11/20 — Loss: 0.1890
+Epoch 12/20 | Step 50/250 (Global Step 2800) | Noise Loss: 0.1277 | CLIP Loss: 0.2025
+Epoch 12/20 | Step 100/250 (Global Step 2850) | Noise Loss: 0.1293 | CLIP Loss: 0.2042
+Epoch 12/20 | Step 150/250 (Global Step 2900) | Noise Loss: 0.1340 | CLIP Loss: 0.2097
+Epoch 12/20 | Step 200/250 (Global Step 2950) | Noise Loss: 0.1243 | CLIP Loss: 0.2076
+Epoch 12/20 | Step 250/250 (Global Step 3000) | Noise Loss: 0.1418 | CLIP Loss: 0.2064
+Epoch 12/20 — Loss: 0.1060
+Epoch 13/20 | Step 50/250 (Global Step 3050) | Noise Loss: 0.1226 | CLIP Loss: 0.2016
+Epoch 13/20 | Step 100/250 (Global Step 3100) | Noise Loss: 0.1173 | CLIP Loss: 0.2070
+Epoch 13/20 | Step 150/250 (Global Step 3150) | Noise Loss: 0.1508 | CLIP Loss: 0.2099
+Epoch 13/20 | Step 200/250 (Global Step 3200) | Noise Loss: 0.1267 | CLIP Loss: 0.2051
+Epoch 13/20 | Step 250/250 (Global Step 3250) | Noise Loss: 0.1094 | CLIP Loss: 0.2018
+Epoch 13/20 — Loss: 0.2318
+Epoch 14/20 | Step 50/250 (Global Step 3300) | Noise Loss: 0.1378 | CLIP Loss: 0.2104
+Epoch 14/20 | Step 100/250 (Global Step 3350) | Noise Loss: 0.1440 | CLIP Loss: 0.2056
+Epoch 14/20 | Step 150/250 (Global Step 3400) | Noise Loss: 0.1238 | CLIP Loss: 0.2078
+Epoch 14/20 | Step 200/250 (Global Step 3450) | Noise Loss: 0.1138 | CLIP Loss: 0.2014
+Epoch 14/20 | Step 250/250 (Global Step 3500) | Noise Loss: 0.1225 | CLIP Loss: 0.2045
+Epoch 14/20 — Loss: 0.0964
+Epoch 15/20 | Step 50/250 (Global Step 3550) | Noise Loss: 0.1290 | CLIP Loss: 0.2057
+Epoch 15/20 | Step 100/250 (Global Step 3600) | Noise Loss: 0.1231 | CLIP Loss: 0.2051
+Epoch 15/20 | Step 150/250 (Global Step 3650) | Noise Loss: 0.1413 | CLIP Loss: 0.2036
+Epoch 15/20 | Step 200/250 (Global Step 3700) | Noise Loss: 0.1320 | CLIP Loss: 0.2122
+Epoch 15/20 | Step 250/250 (Global Step 3750) | Noise Loss: 0.1188 | CLIP Loss: 0.2049
+Epoch 15/20 — Loss: 0.1913
+Epoch 16/20 | Step 50/250 (Global Step 3800) | Noise Loss: 0.1353 | CLIP Loss: 0.2098
+Epoch 16/20 | Step 100/250 (Global Step 3850) | Noise Loss: 0.1474 | CLIP Loss: 0.2025
+Epoch 16/20 | Step 150/250 (Global Step 3900) | Noise Loss: 0.1200 | CLIP Loss: 0.2096
+Epoch 16/20 | Step 200/250 (Global Step 3950) | Noise Loss: 0.1340 | CLIP Loss: 0.2042
+Epoch 16/20 | Step 250/250 (Global Step 4000) | Noise Loss: 0.1299 | CLIP Loss: 0.2059
+Epoch 16/20 — Loss: 0.0944
+Epoch 17/20 | Step 50/250 (Global Step 4050) | Noise Loss: 0.1264 | CLIP Loss: 0.2060
+Epoch 17/20 | Step 100/250 (Global Step 4100) | Noise Loss: 0.1128 | CLIP Loss: 0.2072
+Epoch 17/20 | Step 150/250 (Global Step 4150) | Noise Loss: 0.1394 | CLIP Loss: 0.2104
+Epoch 17/20 | Step 200/250 (Global Step 4200) | Noise Loss: 0.1568 | CLIP Loss: 0.2123
+LatentDiffusion: Running in eps-prediction mode
+DiffusionWrapper has 859.52 M params.
+making attention of type 'vanilla' with 512 in_channels
+Working with z of shape (1, 4, 32, 32) = 4096 dimensions.
+making attention of type 'vanilla' with 512 in_channels
+Selected timesteps for ddim sampler: [  1  21  41  61  81 101 121 141 161 181 201 221 241 261 281 301 321 341
+ 361 381 401 421 441 461 481 501 521 541 561 581 601 621 641 661 681 701
+ 721 741 761 781 801 821 841 861 881 901 921 941 961 981]
+Selected alphas for ddim sampler: a_t: tensor([0.9983, 0.9804, 0.9609, 0.9398, 0.9171, 0.8930, 0.8674, 0.8404, 0.8121,
+        0.7827, 0.7521, 0.7207, 0.6885, 0.6557, 0.6224, 0.5888, 0.5551, 0.5215,
+        0.4882, 0.4552, 0.4229, 0.3913, 0.3605, 0.3308, 0.3023, 0.2750, 0.2490,
+        0.2245, 0.2014, 0.1799, 0.1598, 0.1413, 0.1243, 0.1087, 0.0946, 0.0819,
+        0.0705, 0.0604, 0.0514, 0.0435, 0.0365, 0.0305, 0.0254, 0.0210, 0.0172,
+        0.0140, 0.0113, 0.0091, 0.0073, 0.0058]); a_(t-1): [0.99914998 0.99829602 0.98038077 0.96087277 0.93978298 0.91713792
+ 0.89298052 0.86737001 0.84038192 0.81210774 0.78265446 0.75214338
+ 0.72070938 0.68849909 0.65566933 0.62238538 0.58881873 0.55514455
+ 0.52153981 0.4881804  0.45523876 0.42288151 0.39126703 0.36054322
+ 0.33084565 0.30229566 0.27499905 0.24904492 0.22450483 0.20143245
+ 0.1798636  0.15981644 0.14129217 0.12427604 0.10873855 0.09463691
+ 0.08191671 0.0705137  0.06035557 0.05136392 0.043456   0.03654652
+ 0.03054927 0.02537862 0.02095082 0.01718517 0.0140049  0.01133791
+ 0.00911731 0.00728173]
+For the chosen value of eta, which is 0.0, this results in the following sigma_t schedule for ddim sampler tensor([0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+        0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+        0., 0.], dtype=torch.float64)
+ LR in this epoch = 1.00e-04
+Epoch 1/20 | Step 50/250 (Global Step 50) | Noise Loss: 0.1416 | CLIP Loss: 0.2066
+Epoch 1/20 | Step 100/250 (Global Step 100) | Noise Loss: 0.1294 | CLIP Loss: 0.2102
+Epoch 1/20 | Step 150/250 (Global Step 150) | Noise Loss: 0.1387 | CLIP Loss: 0.2119
+Epoch 1/20 | Step 200/250 (Global Step 200) | Noise Loss: 0.1154 | CLIP Loss: 0.2045
+Epoch 1/20 | Step 250/250 (Global Step 250) | Noise Loss: 0.1403 | CLIP Loss: 0.2128
+Epoch 1/20 — Loss: 0.2126
+ LR in this epoch = 1.00e-04
+Epoch 2/20 | Step 50/250 (Global Step 300) | Noise Loss: 0.1505 | CLIP Loss: 0.2112
+Epoch 2/20 | Step 100/250 (Global Step 350) | Noise Loss: 0.1225 | CLIP Loss: 0.2083
+Epoch 2/20 | Step 150/250 (Global Step 400) | Noise Loss: 0.1219 | CLIP Loss: 0.2091
+Epoch 2/20 | Step 200/250 (Global Step 450) | Noise Loss: 0.1242 | CLIP Loss: 0.2089
+Epoch 2/20 | Step 250/250 (Global Step 500) | Noise Loss: 0.1380 | CLIP Loss: 0.2108
+Epoch 2/20 — Loss: 0.2497
+ LR in this epoch = 1.00e-04
+Epoch 3/20 | Step 50/250 (Global Step 550) | Noise Loss: 0.1343 | CLIP Loss: 0.2051
+Epoch 3/20 | Step 100/250 (Global Step 600) | Noise Loss: 0.1233 | CLIP Loss: 0.2095
+Epoch 3/20 | Step 150/250 (Global Step 650) | Noise Loss: 0.1142 | CLIP Loss: 0.2050
+Epoch 3/20 | Step 200/250 (Global Step 700) | Noise Loss: 0.1302 | CLIP Loss: 0.2027
+Epoch 3/20 | Step 250/250 (Global Step 750) | Noise Loss: 0.1126 | CLIP Loss: 0.2036
+Epoch 3/20 — Loss: 0.1195
+ LR in this epoch = 1.00e-04
+Epoch 4/20 | Step 50/250 (Global Step 800) | Noise Loss: 0.1433 | CLIP Loss: 0.2118
+Epoch 4/20 | Step 100/250 (Global Step 850) | Noise Loss: 0.1207 | CLIP Loss: 0.2096
+Epoch 4/20 | Step 150/250 (Global Step 900) | Noise Loss: 0.1365 | CLIP Loss: 0.2107
+Epoch 4/20 | Step 200/250 (Global Step 950) | Noise Loss: 0.1129 | CLIP Loss: 0.2071
+Epoch 4/20 | Step 250/250 (Global Step 1000) | Noise Loss: 0.1190 | CLIP Loss: 0.2119
+Epoch 4/20 — Loss: 0.1352
+ LR in this epoch = 5.00e-05
+Epoch 5/20 | Step 50/250 (Global Step 1050) | Noise Loss: 0.1203 | CLIP Loss: 0.2076
+Epoch 5/20 | Step 100/250 (Global Step 1100) | Noise Loss: 0.1200 | CLIP Loss: 0.2090
+Epoch 5/20 | Step 150/250 (Global Step 1150) | Noise Loss: 0.1346 | CLIP Loss: 0.2143
+Epoch 5/20 | Step 200/250 (Global Step 1200) | Noise Loss: 0.1328 | CLIP Loss: 0.2097
+Epoch 5/20 | Step 250/250 (Global Step 1250) | Noise Loss: 0.1330 | CLIP Loss: 0.2065
+Epoch 5/20 — Loss: 0.1689
+ LR in this epoch = 5.00e-05
+Epoch 6/20 | Step 50/250 (Global Step 1300) | Noise Loss: 0.1280 | CLIP Loss: 0.2153
+Epoch 6/20 | Step 100/250 (Global Step 1350) | Noise Loss: 0.1405 | CLIP Loss: 0.2135
+Epoch 6/20 | Step 150/250 (Global Step 1400) | Noise Loss: 0.1310 | CLIP Loss: 0.2063
+Epoch 6/20 | Step 200/250 (Global Step 1450) | Noise Loss: 0.1152 | CLIP Loss: 0.2056
+Epoch 6/20 | Step 250/250 (Global Step 1500) | Noise Loss: 0.1326 | CLIP Loss: 0.2130
+Epoch 6/20 — Loss: 0.1910
+ LR in this epoch = 5.00e-05
+Epoch 7/20 | Step 50/250 (Global Step 1550) | Noise Loss: 0.1210 | CLIP Loss: 0.2076
+Epoch 7/20 | Step 100/250 (Global Step 1600) | Noise Loss: 0.1288 | CLIP Loss: 0.2112
+Epoch 7/20 | Step 150/250 (Global Step 1650) | Noise Loss: 0.1437 | CLIP Loss: 0.2122
+Epoch 7/20 | Step 200/250 (Global Step 1700) | Noise Loss: 0.1273 | CLIP Loss: 0.2103
+Epoch 7/20 | Step 250/250 (Global Step 1750) | Noise Loss: 0.1218 | CLIP Loss: 0.2038
+Epoch 7/20 — Loss: 0.0879
+ LR in this epoch = 2.50e-05
+Epoch 8/20 | Step 50/250 (Global Step 1800) | Noise Loss: 0.1308 | CLIP Loss: 0.2115
+Epoch 8/20 | Step 100/250 (Global Step 1850) | Noise Loss: 0.1086 | CLIP Loss: 0.2051
+Epoch 8/20 | Step 150/250 (Global Step 1900) | Noise Loss: 0.1298 | CLIP Loss: 0.2098
+Epoch 8/20 | Step 200/250 (Global Step 1950) | Noise Loss: 0.1312 | CLIP Loss: 0.2062
+Epoch 8/20 | Step 250/250 (Global Step 2000) | Noise Loss: 0.1249 | CLIP Loss: 0.2116
+Epoch 8/20 — Loss: 0.1282
+ LR in this epoch = 2.50e-05
+Epoch 9/20 | Step 50/250 (Global Step 2050) | Noise Loss: 0.1327 | CLIP Loss: 0.2095
+Epoch 9/20 | Step 100/250 (Global Step 2100) | Noise Loss: 0.1346 | CLIP Loss: 0.2157
+Epoch 9/20 | Step 150/250 (Global Step 2150) | Noise Loss: 0.1545 | CLIP Loss: 0.2153
+Epoch 9/20 | Step 200/250 (Global Step 2200) | Noise Loss: 0.1187 | CLIP Loss: 0.2103
+Epoch 9/20 | Step 250/250 (Global Step 2250) | Noise Loss: 0.1253 | CLIP Loss: 0.2105
+Epoch 9/20 — Loss: 0.0757
+ LR in this epoch = 2.50e-05
+Epoch 10/20 | Step 50/250 (Global Step 2300) | Noise Loss: 0.1279 | CLIP Loss: 0.2087
+Epoch 10/20 | Step 100/250 (Global Step 2350) | Noise Loss: 0.1184 | CLIP Loss: 0.2055
+Epoch 10/20 | Step 150/250 (Global Step 2400) | Noise Loss: 0.1145 | CLIP Loss: 0.2089
+Epoch 10/20 | Step 200/250 (Global Step 2450) | Noise Loss: 0.1222 | CLIP Loss: 0.2103
+Epoch 10/20 | Step 250/250 (Global Step 2500) | Noise Loss: 0.1175 | CLIP Loss: 0.2106
+Epoch 10/20 — Loss: 0.1763
+ LR in this epoch = 1.25e-05
+Epoch 11/20 | Step 50/250 (Global Step 2550) | Noise Loss: 0.1227 | CLIP Loss: 0.2108
+Epoch 11/20 | Step 100/250 (Global Step 2600) | Noise Loss: 0.1075 | CLIP Loss: 0.2054
+Epoch 11/20 | Step 150/250 (Global Step 2650) | Noise Loss: 0.1379 | CLIP Loss: 0.2133
+Epoch 11/20 | Step 200/250 (Global Step 2700) | Noise Loss: 0.1268 | CLIP Loss: 0.2114
+Epoch 11/20 | Step 250/250 (Global Step 2750) | Noise Loss: 0.1432 | CLIP Loss: 0.2102
+Epoch 11/20 — Loss: 0.1213
+ LR in this epoch = 1.25e-05
+Epoch 12/20 | Step 50/250 (Global Step 2800) | Noise Loss: 0.1170 | CLIP Loss: 0.2079
+Epoch 12/20 | Step 100/250 (Global Step 2850) | Noise Loss: 0.1256 | CLIP Loss: 0.2112
+Epoch 12/20 | Step 150/250 (Global Step 2900) | Noise Loss: 0.1233 | CLIP Loss: 0.2046
+Epoch 12/20 | Step 200/250 (Global Step 2950) | Noise Loss: 0.1272 | CLIP Loss: 0.2127
+Epoch 12/20 | Step 250/250 (Global Step 3000) | Noise Loss: 0.1085 | CLIP Loss: 0.2112
+Epoch 12/20 — Loss: 0.1882
+ LR in this epoch = 1.25e-05
+Epoch 13/20 | Step 50/250 (Global Step 3050) | Noise Loss: 0.1277 | CLIP Loss: 0.2107
+Epoch 13/20 | Step 100/250 (Global Step 3100) | Noise Loss: 0.1294 | CLIP Loss: 0.2139
+Epoch 13/20 | Step 150/250 (Global Step 3150) | Noise Loss: 0.1431 | CLIP Loss: 0.2105
+Epoch 13/20 | Step 200/250 (Global Step 3200) | Noise Loss: 0.1395 | CLIP Loss: 0.2107
+Epoch 13/20 | Step 250/250 (Global Step 3250) | Noise Loss: 0.1228 | CLIP Loss: 0.2117
+Epoch 13/20 — Loss: 0.1445
+ LR in this epoch = 6.25e-06
+Epoch 14/20 | Step 50/250 (Global Step 3300) | Noise Loss: 0.1326 | CLIP Loss: 0.2161
+Epoch 14/20 | Step 100/250 (Global Step 3350) | Noise Loss: 0.1124 | CLIP Loss: 0.2089
+Epoch 14/20 | Step 150/250 (Global Step 3400) | Noise Loss: 0.1205 | CLIP Loss: 0.2140
+Epoch 14/20 | Step 200/250 (Global Step 3450) | Noise Loss: 0.1181 | CLIP Loss: 0.2058
+Epoch 14/20 | Step 250/250 (Global Step 3500) | Noise Loss: 0.1361 | CLIP Loss: 0.2105
+Epoch 14/20 — Loss: 0.3248
+ LR in this epoch = 6.25e-06
+Epoch 15/20 | Step 50/250 (Global Step 3550) | Noise Loss: 0.1238 | CLIP Loss: 0.2132
+Epoch 15/20 | Step 100/250 (Global Step 3600) | Noise Loss: 0.1288 | CLIP Loss: 0.2141
+Epoch 15/20 | Step 150/250 (Global Step 3650) | Noise Loss: 0.1280 | CLIP Loss: 0.2142
+Epoch 15/20 | Step 200/250 (Global Step 3700) | Noise Loss: 0.1211 | CLIP Loss: 0.2119
+Epoch 15/20 | Step 250/250 (Global Step 3750) | Noise Loss: 0.1312 | CLIP Loss: 0.2125
+Epoch 15/20 — Loss: 0.1924
+ LR in this epoch = 6.25e-06
+Epoch 16/20 | Step 50/250 (Global Step 3800) | Noise Loss: 0.1338 | CLIP Loss: 0.2118
+Epoch 16/20 | Step 100/250 (Global Step 3850) | Noise Loss: 0.1164 | CLIP Loss: 0.2060
+Epoch 16/20 | Step 150/250 (Global Step 3900) | Noise Loss: 0.1312 | CLIP Loss: 0.2143
+Epoch 16/20 | Step 200/250 (Global Step 3950) | Noise Loss: 0.1228 | CLIP Loss: 0.2111
+Epoch 16/20 | Step 250/250 (Global Step 4000) | Noise Loss: 0.1411 | CLIP Loss: 0.2141
+Epoch 16/20 — Loss: 0.1437
+ LR in this epoch = 3.13e-06
+Epoch 17/20 | Step 50/250 (Global Step 4050) | Noise Loss: 0.1145 | CLIP Loss: 0.2139
+Epoch 17/20 | Step 100/250 (Global Step 4100) | Noise Loss: 0.1354 | CLIP Loss: 0.2089
+Epoch 17/20 | Step 150/250 (Global Step 4150) | Noise Loss: 0.1285 | CLIP Loss: 0.2136
+Epoch 17/20 | Step 200/250 (Global Step 4200) | Noise Loss: 0.1366 | CLIP Loss: 0.2126
+Epoch 17/20 | Step 250/250 (Global Step 4250) | Noise Loss: 0.1263 | CLIP Loss: 0.2102
+Epoch 17/20 — Loss: 0.2090
+ LR in this epoch = 3.13e-06
+Epoch 18/20 | Step 50/250 (Global Step 4300) | Noise Loss: 0.1345 | CLIP Loss: 0.2145
+Epoch 18/20 | Step 100/250 (Global Step 4350) | Noise Loss: 0.1301 | CLIP Loss: 0.2115
+Epoch 18/20 | Step 150/250 (Global Step 4400) | Noise Loss: 0.1544 | CLIP Loss: 0.2171
+Epoch 18/20 | Step 200/250 (Global Step 4450) | Noise Loss: 0.1215 | CLIP Loss: 0.2117
+Epoch 18/20 | Step 250/250 (Global Step 4500) | Noise Loss: 0.1388 | CLIP Loss: 0.2129
+Epoch 18/20 — Loss: 0.1713
+ LR in this epoch = 3.13e-06
+Epoch 19/20 | Step 50/250 (Global Step 4550) | Noise Loss: 0.1321 | CLIP Loss: 0.2141
+Epoch 19/20 | Step 100/250 (Global Step 4600) | Noise Loss: 0.1332 | CLIP Loss: 0.2115
+Epoch 19/20 | Step 150/250 (Global Step 4650) | Noise Loss: 0.1293 | CLIP Loss: 0.2098
+Epoch 19/20 | Step 200/250 (Global Step 4700) | Noise Loss: 0.1382 | CLIP Loss: 0.2158
+Epoch 19/20 | Step 250/250 (Global Step 4750) | Noise Loss: 0.1225 | CLIP Loss: 0.2080
+Epoch 19/20 — Loss: 0.2961
+ LR in this epoch = 1.56e-06
+Epoch 20/20 | Step 50/250 (Global Step 4800) | Noise Loss: 0.1545 | CLIP Loss: 0.2201
+Epoch 20/20 | Step 100/250 (Global Step 4850) | Noise Loss: 0.1274 | CLIP Loss: 0.2100
+Epoch 20/20 | Step 150/250 (Global Step 4900) | Noise Loss: 0.1504 | CLIP Loss: 0.2173
+Epoch 20/20 | Step 200/250 (Global Step 4950) | Noise Loss: 0.1215 | CLIP Loss: 0.2075
+Epoch 20/20 | Step 250/250 (Global Step 5000) | Noise Loss: 0.1343 | CLIP Loss: 0.2088
+Epoch 20/20 — Loss: 0.2820
+Total training time=  9826.852274417877
+Saved checkpoint: finetuned_styleid_lora_clip.ckpt
+Saved checkpoint: params to plot
