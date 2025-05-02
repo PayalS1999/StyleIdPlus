@@ -16,7 +16,8 @@ from config import get_args
 class style_transfer_module():
            
     def __init__(self,
-        unet, vae, text_encoder, tokenizer, scheduler, cfg, style_transfer_params = None,
+        unet, vae, text_encoder, tokenizer, scheduler, cfg,
+        style_transfer_params=None, mask=None,
     ):  
         
         style_transfer_params_default = {
@@ -27,7 +28,15 @@ class style_transfer_module():
         if style_transfer_params is not None:
             style_transfer_params_default.update(style_transfer_params)
         self.style_transfer_params = style_transfer_params_default
-        
+        self.mask_tensor = None
+        if mask is not None:
+            # binary numpy (H,W) → tensor [1,1,H,W] on same device/dtype as UNet
+            mask_t = torch.tensor(mask, dtype=unet.dtype, device=next(unet.parameters()).device)
+            self.mask_tensor = mask_t.unsqueeze(0).unsqueeze(0)   # shape [1,1,H,W]
+            self.gamma_masked    = 0.75   # strong style
+            self.gamma_preserved = 1.0   # preserve content
+        else:
+            self.gamma_masked = self.gamma_preserved = self.style_transfer_params['gamma']
         self.unet = unet # SD unet
         self.vae = vae
         self.text_encoder = text_encoder
@@ -199,7 +208,31 @@ class style_transfer_module():
                 q_c, k_s, v_s = self.attn_features_modify[name][int(self.cur_t)]
                 
                 # style injection
-                q_hat_cs = q_c * self.style_transfer_params['gamma'] + q_cs * (1 - self.style_transfer_params['gamma'])
+                if self.mask_tensor is not None:
+                    # figure out spatial size of this feature map
+                    if input[0].ndim == 4:
+                        _, _, H_feat, W_feat = input[0].shape       # conv feature map
+                    else:
+                        H_feat = W_feat = int(q_c.shape[1] ** 0.5)   # fallback for flat shape
+
+                    # resize mask to that spatial size
+                    mask_resized = torch.nn.functional.interpolate(
+                        self.mask_tensor, size=(H_feat, W_feat), mode="nearest"
+                    )                           # shape [1,1,H,W]
+                    gamma_map = (
+                        mask_resized * self.gamma_masked
+                        + (1 - mask_resized) * self.gamma_preserved
+                    )                           # masked→0.3  unmasked→1.0
+                    gamma_map = gamma_map.view(1, -1, 1)            # [1, H*W, 1]
+
+                    # blend content and current queries per pixel
+                    q_hat_cs = q_c * gamma_map + q_cs * (1 - gamma_map)
+                else:
+                    # original uniform gamma blending
+                    g = self.style_transfer_params["gamma"]
+                    q_hat_cs = q_c * g + q_cs * (1 - g)
+
+                # always use style's key & value
                 k_cs, v_cs = k_s, v_s
                 
                 # Replace query key and value
@@ -218,7 +251,45 @@ if __name__ == "__main__":
     save_dir = cfg.save_dir
     style_image = cv2.imread(cfg.sty_fn)[:, :, ::-1]
     content_image = cv2.imread(cfg.cnt_fn)[:, :, ::-1]
-    
+    # run_styleid_diffusers.py (after reading content_image and style_image)
+    mask = None
+    if cfg.mask_fn is not None:
+        # Load user-provided mask (expecting a binary mask image)
+        mask_img = cv2.imread(cfg.mask_fn, cv2.IMREAD_GRAYSCALE)
+        if mask_img is None:
+            raise FileNotFoundError(f"Mask file '{cfg.mask_fn}' not found")
+        # Threshold to binary (0 or 1)
+        mask = (mask_img > 128).astype(np.uint8)
+    else:
+        # Automatically generate a foreground/background mask from content_image
+        try:
+            import torch.nn.functional as F
+            from torchvision import models, transforms
+        except ImportError:
+            raise ImportError("torchvision is required for automatic mask generation. Please install torchvision.")
+        # Prepare content image for segmentation (convert numpy RGB to PIL and then to tensor)
+        content_pil = Image.fromarray(content_image)  # content_image is in RGB format
+        seg_transform = transforms.Compose([
+            transforms.ToTensor(),
+            transforms.Normalize(mean=[0.485, 0.456, 0.406],
+                                 std=[0.229, 0.224, 0.225])
+        ])
+        input_tensor = seg_transform(content_pil).unsqueeze(0)  # Shape: [1,3,H,W]
+        device_seg = "cuda" if torch.cuda.is_available() else "cpu"
+        input_tensor = input_tensor.to(device_seg)
+        # Load a lightweight segmentation model (DeepLabV3 with ResNet50 backbone)
+        seg_model = models.segmentation.deeplabv3_resnet50(pretrained=True).to(device_seg)
+        seg_model.eval()
+        with torch.no_grad():
+            output = seg_model(input_tensor)["out"]  # Shape: [1, C, H, W], C = number of classes
+            pred_mask = output.argmax(dim=1)[0]      # Shape: [H, W], class indices per pixel
+        pred_mask = pred_mask.cpu().numpy().astype(np.uint8)
+        # Treat any non-background class as foreground (class 0 is background for DeepLab default)
+        mask = (pred_mask != 0).astype(np.uint8)
+        # Fallback: if mask is mostly empty (no foreground detected), revert to full-image style transfer
+        if mask.sum() <= 0.01 * mask.size:  # if <=1% pixels are foreground
+            print("No significant foreground detected; reverting to full-image style transfer.")
+            mask = None
     os.makedirs(save_dir, exist_ok=True)
     os.makedirs(save_dir + '/intermediate', exist_ok=True)
     
@@ -245,8 +316,11 @@ if __name__ == "__main__":
     
 
     # Init style transfer module
-    unet_wrapper = style_transfer_module(unet, vae, text_encoder, tokenizer, scheduler, cfg, style_transfer_params=style_transfer_params)
-    
+    unet_wrapper = style_transfer_module(
+        unet, vae, text_encoder, tokenizer, scheduler,
+        cfg, style_transfer_params=style_transfer_params,
+        mask=mask         # ← NEW
+)
     
     # Get style image tokens
     denoise_kwargs = unet_wrapper.get_text_condition(style_text)
