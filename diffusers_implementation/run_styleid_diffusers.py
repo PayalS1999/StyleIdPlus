@@ -11,6 +11,7 @@ import cv2
 from tqdm import tqdm
 
 from config import get_args
+from util.color_harmonize import harmonize_lab
 
 # class for obtain and override the features
 class style_transfer_module():
@@ -330,4 +331,13 @@ if __name__ == "__main__":
 
     save_image(images, os.path.join(save_dir, "reverse_stylized.jpg"))
     save_image(image_last, os.path.join(save_dir, "stylized_image.jpg"))
+    # image_last is RGB uint8 from denormalize(); style_image was read earlier
+    harmonized = harmonize_lab(image_last, style_image)
+
+    save_image(
+        harmonized,
+        os.path.join(save_dir, "stylized_image_harmonized.jpg")
+    )
+    print("Saved color‑harmonised image → stylized_image_harmonized.jpg")
+    # ------------------------------------------------------------------
     
