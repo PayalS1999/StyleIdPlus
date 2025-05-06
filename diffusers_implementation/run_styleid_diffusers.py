@@ -2,7 +2,7 @@ import torch
 import numpy as np, copy, os, sys
 import matplotlib.pyplot as plt
 
-from utils import * # image save utils
+from utils import *  # image save utils  (relative import)
 
 from stable_diffusion import load_stable_diffusion, encode_latent, decode_latent, get_text_embedding, get_unet_layers, attention_op  # load SD
 import copy

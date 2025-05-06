@@ -457,14 +457,14 @@ def main():
                                                     args.content_metric,
                                                     args.num_workers)
 
-    cfsd = compute_cfsd(args.tar,
-                        args.cnt,
-                        args.batch_size,
-                        args.device,
-                        args.num_workers)
+    #cfsd = compute_cfsd(args.tar,
+                        #args.cnt,
+                        #args.batch_size,
+                       # args.device,
+                       # args.num_workers)
 
     print('ArtFID:', artfid, 'FID:', fid, 'LPIPS:', lpips, 'LPIPS_gray:', lpips_gray)
-    print('CFSD:', cfsd)
+    #print('CFSD:', cfsd)
 
 if __name__ == '__main__':
     main()
